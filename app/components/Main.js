@@ -13,12 +13,8 @@ var Main = React.createClass({
 
             <div className="container">
                 <div className="jumbotron">
-                    <h2><strong>Which Child???</strong></h2>
-                        <p>
-                            <a className="btn btn-primary btn-lg">Show Child 1</a>
-                            <a className="btn btn-danger btn-lg">Show Child 2</a>
+                    <h2><strong>New York Times Article Scrapper</strong></h2>
 
-                        </p>
                 </div>
 
                 <div className="row">

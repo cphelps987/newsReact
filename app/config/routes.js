@@ -51,7 +51,7 @@ module.exports = (
             <IndexRoute component={SavedChild} />
         </Route>
 
-        <IndexRoute component={Results} />
+        <IndexRoute component={Search} />
 
     </Route>
   </Router>
