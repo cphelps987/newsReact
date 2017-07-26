@@ -1,9 +1,16 @@
 
 // Include React
-var React = require("react");
-var Results = require('./Results');
+const React = require("react");
+const axios = require('axios');
 
-var Search = React.createClass({
+const Results = require('./Results');
+const Saved = require('./Saved');
+
+const helper = require('../helper/helper');
+
+
+
+const Search = React.createClass({
 
 
     // Here we render the component
@@ -15,9 +22,10 @@ var Search = React.createClass({
             searchTerm: '',
             startDate: 1900,
             endDate: 2017,
-        }
+        };
 
-        console.log(this.state)
+        console.log(this.state);
+
 
         return (
             <div>
@@ -35,29 +43,24 @@ var Search = React.createClass({
                     </div>
                     <div className="form-group">
                       <label>Start Year:</label>
-                      <input type="password" className="form-control" id="startYr"></input>
+                      <input type="text" className="form-control" id="startYr"></input>
                     </div>
                     <div className="form-group">
                       <label>End Year:</label>
-                      <input type="password" className="form-control" id="EndYr"></input>
+                      <input type="text" className="form-control" id="EndYr"></input>
                     </div>
                     <button type="submit" className="btn btn-default">Submit</button>
                   </div>
                 </div>
               </div>
-
-
-
             </div>
-
-            <Results />
-
-
+            <Results>
+                {this.state}
+            </Results>
         </div>
         );
     }
 });
-
 
 module.exports = Search;
 

@@ -1,10 +1,28 @@
 // Include React
 var React = require("react");
-// Including the Link component from React Router to navigate within our application without full page reloads
+//router
 var Link = require("react-router").Link;
+
+//other files
+var Search = require("./Search");
+var Results = require("./Results");
+var Saved = require("./Saved");
+
+//helper - ajax
+var helpers = require("../helper/helper");
 
 // Create the Main component
 var Main = React.createClass({
+
+    getInitialState: function(){
+        return{
+            searchTerm: "",
+            startDate: "",
+            endDate: "",
+            results: "",
+            saved: []
+        }
+    },
 
   // Here we render the component
   render: function() {
