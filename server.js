@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
-
+const Article = require('./models/Article.js');
 //port
 const PORT = process.env.PORT || 3000;
 
@@ -46,6 +46,46 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+// Routes
+// Sends everything to html
+app.get('/', function(req, res){
+    res.sendFile('./public/index.html');
+})
+// Gets Articles
+app.get('/api/saved', function(req, res) {
+    Article.find({})
+        .exec(function(err, doc){
+            if(err){
+                console.log(err);
+            } else {
+                res.send(doc);
+            }
+        })
+});
+// Post Article
+app.post('/api/saved', function(req, res){
+    const newArticle = new Article({
+        title: req.body.title,
+        date: req.body.date,
+        url: req.body.url
+    });
+
+    newArticle.save(function(err, doc){
+        if(err){
+            console.log(err);
+            res.send(err);
+        } else {
+            res.json(doc);
+        }
+    });
+});
+// Delete Article
+app.delete('/api/saved/:id', function(req, res){
+    Article.find({'_id': req.params.id}).remove()
+        .exec(function(err, doc) {
+            res.send(doc);
+        });
+});
 
 // Listen on port 3000
 app.listen(PORT, function () {

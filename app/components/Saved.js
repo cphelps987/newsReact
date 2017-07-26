@@ -6,7 +6,11 @@ var React = require("react");
 
 var Saved = React.createClass({
 
-
+    getInitialState: function(){
+        return {
+            saved: []
+        }
+    },
 
     // Here we render the component
     render: function() {

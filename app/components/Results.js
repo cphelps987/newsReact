@@ -1,9 +1,18 @@
 
 // Include React
-var React = require("react");
-var Saved = require('./Saved');
+const React = require("react");
+const Saved = require('./Saved');
 
-var Results = React.createClass({
+const Results = React.createClass({
+
+    getInitialState: function(){
+        return {
+            title: "",
+            date: "",
+            url: "",
+            results: []
+        }
+    },
 
     // Here we render the component
     render: function() {
