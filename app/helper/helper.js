@@ -40,44 +40,7 @@ const helpers = {
 
 
     },
-    //get api response
-    api: function(){
 
-        return axios.get('/api')
-            .then(function(response){
-
-                console.log(response);
-                return response;
-            });
-    },
-    //save results from the request in the api
-    save: function(article){
-
-        return axios.post('/api/saved', article)
-            .then(function(results){
-
-                console.log("api article in db");
-            })
-    },
-    //get info from api
-    get: function(){
-
-        return axios.get('api/saved')
-            .then(function(response){
-
-                return response;
-
-            })
-    },
-    //delete from api
-    delete: function (article_id) {
-
-        return axios.post('api/saved/delete/', article_id)
-            .then(function(response){
-
-                return response;
-            })
-    },
 
 
 };
@@ -86,20 +49,3 @@ const helpers = {
 module.exports = helpers;
 
 
-//nyt jax for node
-
-/*var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
- url += '?' + $.param({
-     'api-key': "3416517b01a04bba84fa9dba8f7437e0",
-     'q': "dog",
-     'begin_date': "19910819",
-     'end_date': "20150819"
-     });
- $.ajax({
-     url: url,
-     method: 'GET',
-     }).done(function(result) {
-     console.log(result);
-     }).fail(function(err) {
-     throw err;
- });*/
