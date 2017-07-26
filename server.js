@@ -4,9 +4,9 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
-const Article = require('./models/Article.js');
+const Article = require('./models/Articles.js');
 //port
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 const db = process.env.MONGODB_URI || "mongodb://localhost/nyt";
 
